@@ -1,0 +1,27 @@
+{
+  "name": "xcraft-core-eventstore",
+  "version": "0.1.0",
+  "description": "Xcraft event store",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "xcraft",
+    "event",
+    "store"
+  ],
+  "repository": {
+    "type": "file",
+    "url": "lib/xcraft-core-eventstore"
+  },
+  "dependencies": {
+    "async": "^0.9.0",
+    "nedb": "1.0.0",
+    "xcraft-core-etc": "0.1.0",
+    "xcraft-core-log": "0.1.0"
+  },
+  "author": "Samuel Loup",
+  "license": "MIT",
+  "devDependencies": {}
+}
