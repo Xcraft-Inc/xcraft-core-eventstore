@@ -12,9 +12,12 @@ var testEvent = {
 
 es.use (function () {
   es.findAll (0, function (err, docs) {
+    console.log (err);
     console.log ('documents:' + docs.length);
-    es.insert (testEvent, function () {
+    es.insert ('test.topic', testEvent, function (err) {
+      console.log (err);
       es.findAll (0, function (err, docs) {
+        console.log (err);
         console.log ('documents:' + docs.length);
       });
     });
