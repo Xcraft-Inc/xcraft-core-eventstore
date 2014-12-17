@@ -15,7 +15,7 @@ exports.getInstance = function () {
   return es;
 };
 
-exports.persist= function (topic, msg) {
+exports.persist = function (topic, msg) {
   if (es) {
     /* Note about EventStore and 'connected' topic */
     /* we discard connected message for two reason: */
