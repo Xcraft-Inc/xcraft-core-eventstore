@@ -1,11 +1,12 @@
 'use strict';
+
 var es = require ('xcraft-core-eventstore').getInstance();
 var testEvent = {
   userId: 0,
   activityId: 99,
   data: {
     payload: 'test.test.test',
-    someData: ['a','b','c']
+    someData: ['a', 'b', 'c']
   }
 };
 
@@ -18,5 +19,4 @@ es.use (function () {
       });
     });
   });
-
 });

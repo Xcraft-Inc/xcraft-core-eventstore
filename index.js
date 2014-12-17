@@ -1,15 +1,18 @@
 'use strict';
+
 var EventStore = require ('./lib/eventstore.js');
 var es;
 
 exports.getInstance = function () {
-  if(es) {
+  if (es) {
     return es;
   }
+
   var config = require ('xcraft-core-etc').load ('xcraft-core-eventstore');
   es = new EventStore (config);
   return es;
 };
+
 /**
  * Retrieve the inquirer definition for xcraft-core-eventstore
  */
