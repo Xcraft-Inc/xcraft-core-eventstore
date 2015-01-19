@@ -5,7 +5,6 @@ var eventstore = es.getInstance();
 
 /* Work in progress playground*/
 eventstore.use (function () {
-
   var testEvent = {
     payload: 'test.test.test',
     someData: ['a', 'b', 'c']
