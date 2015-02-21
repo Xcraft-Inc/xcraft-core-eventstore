@@ -1,7 +1,7 @@
 'use strict';
 
 var es = require ('xcraft-core-eventstore');
-var eventstore = es.getInstance();
+var eventstore = es.getInstance ();
 
 /* Work in progress playground*/
 eventstore.use (function () {
