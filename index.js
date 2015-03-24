@@ -2,21 +2,13 @@
 
 var moduleName    = 'eventstore';
 var xLog          = require ('xcraft-core-log') (moduleName);
+var busConfig     = require ('xcraft-core-etc').load ('xcraft-core-bus');
 var EventStore    = require ('./lib/eventstore.js');
+var axon          = require ('axon');
+var subscriptions = axon.socket ('sub');
 var es;
 
-exports.getInstance = function () {
-  if (es) {
-    return es;
-  }
-
-  var config = require ('xcraft-core-etc').load ('xcraft-core-eventstore');
-  es = new EventStore (config);
-  return es;
-};
-
-exports.persist = function (topic, msg) {
-  return;
+var persist = function (topic, msg) {
   if (es) {
     /* Note about EventStore and 'connected' topic */
     /* we discard connected message for two reason: */
@@ -38,6 +30,27 @@ exports.persist = function (topic, msg) {
   } else {
     xLog.err ('not ready to persist');
   }
+};
+
+subscriptions.subscribe ('*');
+subscriptions.on ('message', function (topic, msg) {
+  if (topic !== 'greathall.heartbeat') {
+    persist (topic, msg);
+    if (topic === 'gameover') {
+      subscriptions.close ();
+    }
+  }
+});
+
+exports.getInstance = function () {
+  if (es) {
+    return es;
+  }
+
+  var config = require ('xcraft-core-etc').load ('xcraft-core-eventstore');
+  es = new EventStore (config);
+  subscriptions.connect (parseInt (busConfig.notifierPort), busConfig.host);
+  return es;
 };
 
 /**
