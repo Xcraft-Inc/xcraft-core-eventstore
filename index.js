@@ -14,7 +14,7 @@ var persist = function (topic, msg) {
     /* we discard connected message for two reason: */
     /* 1. eventstore don't support field name containing '.' */
     /* 2. this topic annonce all commands, and has no business value */
-    if (msg && topic !== 'greathall.autoconnect.finished') {
+    if (msg && topic !== 'greathall::autoconnect.finished') {
       es.insert (msg.token, topic, msg.data, function (err) {
         if (err) {
           xLog.err (err);
@@ -34,7 +34,7 @@ var persist = function (topic, msg) {
 
 subscriptions.subscribe ('*');
 subscriptions.on ('message', function (topic, msg) {
-  if (topic !== 'greathall.heartbeat') {
+  if (topic !== 'greathall::heartbeat') {
     persist (topic, msg);
     if (topic === 'gameover') {
       subscriptions.close ();
