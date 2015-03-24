@@ -14,7 +14,7 @@ var persist = function (topic, msg) {
     /* we discard connected message for two reason: */
     /* 1. eventstore don't support field name containing '.' */
     /* 2. this topic annonce all commands, and has no business value */
-    if (msg && topic !== 'greathall.connected') {
+    if (msg && topic !== 'greathall.autoconnect.finished') {
       es.insert (msg.token, topic, msg.data, function (err) {
         if (err) {
           xLog.err (err);
