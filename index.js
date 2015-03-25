@@ -6,9 +6,7 @@ var busConfig     = require ('xcraft-core-etc').load ('xcraft-core-bus');
 var EventStore    = require ('./lib/eventstore.js');
 var axon          = require ('axon');
 var subscriptions = axon.socket ('sub');
-
 var es;
-var namespaceServer = busConfig.namespaceServer;
 
 var persist = function (topic, msg) {
   if (es) {
@@ -16,7 +14,7 @@ var persist = function (topic, msg) {
     /* we discard connected message for two reason: */
     /* 1. eventstore don't support field name containing '.' */
     /* 2. this topic annonce all commands, and has no business value */
-    if (msg && topic !== namespaceServer + '::autoconnect.finished') {
+    if (msg && topic !== 'greathall::autoconnect.finished') {
       es.insert (msg.token, topic, msg.data, function (err) {
         if (err) {
           xLog.err (err);
@@ -36,7 +34,7 @@ var persist = function (topic, msg) {
 
 subscriptions.subscribe ('*');
 subscriptions.on ('message', function (topic, msg) {
-  if (topic !== namespaceServer + '::heartbeat') {
+  if (topic !== 'greathall::heartbeat') {
     persist (topic, msg);
     if (topic === 'gameover') {
       subscriptions.close ();
