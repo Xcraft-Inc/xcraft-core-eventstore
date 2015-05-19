@@ -43,11 +43,12 @@ subscriptions.on ('message', function (topic, msg) {
 });
 
 exports.getInstance = function () {
-  if (es) {
+  var config = require ('xcraft-core-etc').load ('xcraft-core-eventstore');
+
+  if (!config.enable || es) {
     return es;
   }
 
-  var config = require ('xcraft-core-etc').load ('xcraft-core-eventstore');
   es = new EventStore (config);
   subscriptions.connect (parseInt (busConfig.notifierPort), busConfig.host);
   return es;
@@ -57,6 +58,11 @@ exports.getInstance = function () {
  * Retrieve the inquirer definition for xcraft-core-eventstore
  */
 exports.xcraftConfig = [{
+  type: 'checkbox',
+  name: 'enable',
+  message: 'enable the event store',
+  default: false
+}, {
   type: 'input',
   name: 'dbfile',
   message: 'EventStore datafile path:',
