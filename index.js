@@ -58,7 +58,7 @@ exports.getInstance = function () {
  * Retrieve the inquirer definition for xcraft-core-eventstore
  */
 exports.xcraftConfig = [{
-  type: 'checkbox',
+  type: 'confirm',
   name: 'enable',
   message: 'enable the event store',
   default: false
