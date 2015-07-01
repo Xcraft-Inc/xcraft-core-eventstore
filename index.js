@@ -53,18 +53,3 @@ exports.getInstance = function () {
   subscriptions.connect (parseInt (busConfig.notifierPort), busConfig.host);
   return es;
 };
-
-/**
- * Retrieve the inquirer definition for xcraft-core-eventstore
- */
-exports.xcraftConfig = [{
-  type: 'confirm',
-  name: 'enable',
-  message: 'enable the event store',
-  default: false
-}, {
-  type: 'input',
-  name: 'dbfile',
-  message: 'EventStore datafile path:',
-  default: './var/xcraft-core-eventstore/events.nedb'
-}];
