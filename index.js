@@ -21,7 +21,7 @@ var persist = function (topic, msg) {
         }
       });
     } else {
-      es.insert (msg.token, topic, null , function (err) {
+      es.insert (msg.token, topic, null, function (err) {
         if (err) {
           xLog.err (err);
         }
