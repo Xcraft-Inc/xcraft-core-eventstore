@@ -2,7 +2,7 @@
 
 var moduleName    = 'eventstore';
 var xLog          = require ('xcraft-core-log') (moduleName);
-var busConfig     = require ('xcraft-core-etc').load ('xcraft-core-bus');
+var busConfig     = require ('xcraft-core-etc') ().load ('xcraft-core-bus');
 var EventStore    = require ('./lib/eventstore.js');
 var axon          = require ('axon');
 var subscriptions = axon.socket ('sub');
@@ -43,7 +43,7 @@ subscriptions.on ('message', function (topic, msg) {
 });
 
 exports.getInstance = function () {
-  var config = require ('xcraft-core-etc').load ('xcraft-core-eventstore');
+  var config = require ('xcraft-core-etc') ().load ('xcraft-core-eventstore');
 
   if (!config.enable || es) {
     return es;
