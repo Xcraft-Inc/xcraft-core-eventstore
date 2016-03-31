@@ -45,7 +45,7 @@ subscriptions.on ('message', function (topic, msg) {
 exports.getInstance = function () {
   var config = require ('xcraft-core-etc') ().load ('xcraft-core-eventstore');
 
-  if (!config.enable || es) {
+  if (!config || !config.enable || es) {
     return es;
   }
 
