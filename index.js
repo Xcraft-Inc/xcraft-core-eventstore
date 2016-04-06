@@ -1,7 +1,7 @@
 'use strict';
 
 var moduleName    = 'eventstore';
-var xLog          = require ('xcraft-core-log') (moduleName);
+var xLog          = require ('xcraft-core-log') (moduleName, null);
 var busConfig     = require ('xcraft-core-etc') ().load ('xcraft-core-bus');
 var EventStore    = require ('./lib/eventstore.js');
 var axon          = require ('axon');
