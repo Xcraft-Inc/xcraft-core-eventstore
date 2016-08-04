@@ -26,7 +26,7 @@
     "xcraft-core-log": "0.1.0"
   },
   "author": "Samuel Loup & Mathieu Schroeter",
-  "license": "MIT"",
+  "license": "MIT",
    "bugs": {
     "url": "https://github.com/Xcraft-Inc/xcraft-core-eventstore/issues"
   },
