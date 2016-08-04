@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "Xcraft event store",
   "main": "index.js",
+  "engines": {
+    "node": ">=6"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -22,7 +25,10 @@
     "xcraft-core-etc": "0.1.0",
     "xcraft-core-log": "0.1.0"
   },
-  "author": "Samuel Loup",
-  "license": "MIT",
-  "devDependencies": {}
+  "author": "Samuel Loup & Mathieu Schroeter",
+  "license": "MIT"",
+   "bugs": {
+    "url": "https://github.com/Xcraft-Inc/xcraft-core-eventstore/issues"
+  },
+  "homepage": "https://github.com/Xcraft-Inc/xcraft-core-eventstore#readme"
 }
