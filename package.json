@@ -1,6 +1,6 @@
 {
   "name": "xcraft-core-eventstore",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Xcraft event store",
   "main": "index.js",
   "engines": {
@@ -22,8 +22,8 @@
     "async": "^1.4.0",
     "nedb": "^1.1.2",
     "axon": "^2.0.2",
-    "xcraft-core-etc": "0.1.0",
-    "xcraft-core-log": "0.1.0"
+    "xcraft-core-etc": "^1.0.0",
+    "xcraft-core-log": "^1.0.0"
   },
   "author": "Samuel Loup & Mathieu Schroeter",
   "license": "MIT",
