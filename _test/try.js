@@ -7,7 +7,7 @@ var eventstore = es.getInstance ();
 eventstore.use (function () {
   var testEvent = {
     payload: 'test.test.test',
-    someData: ['a', 'b', 'c']
+    someData: ['a', 'b', 'c'],
   };
 
   eventstore.findAll (function (err, docs) {
