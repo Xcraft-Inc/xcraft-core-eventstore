@@ -21,7 +21,7 @@
   "dependencies": {
     "async": "^1.4.0",
     "nedb": "^1.1.2",
-    "axon": "^2.0.2",
+    "axon": "Xcraft-Inc/axon",
     "xcraft-core-etc": "^1.0.0",
     "xcraft-core-log": "^1.0.0"
   },
