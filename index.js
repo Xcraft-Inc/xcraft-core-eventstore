@@ -4,7 +4,7 @@ var moduleName = 'eventstore';
 var xLog = require('xcraft-core-log')(moduleName, null);
 var busConfig = require('xcraft-core-etc')().load('xcraft-core-bus');
 var EventStore = require('./lib/eventstore.js');
-var axon = require('axon');
+var axon = require('xcraft-axon');
 var subscriptions = axon.socket('sub');
 var es;
 
