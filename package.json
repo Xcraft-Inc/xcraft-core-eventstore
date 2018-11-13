@@ -9,11 +9,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [
-    "xcraft",
-    "event",
-    "store"
-  ],
+  "keywords": ["xcraft", "event", "store"],
   "repository": {
     "type": "file",
     "url": "lib/xcraft-core-eventstore"
@@ -32,6 +28,6 @@
   },
   "homepage": "https://github.com/Xcraft-Inc/xcraft-core-eventstore#readme",
   "devDependencies": {
-    "xcraft-dev-rules": "^0.2.0"
+    "xcraft-dev-rules": "^0.3.0"
   }
 }
