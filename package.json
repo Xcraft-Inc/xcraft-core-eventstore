@@ -18,7 +18,7 @@
     "async": "^1.4.0",
     "nedb": "^1.1.2",
     "xcraft-axon": "^2.0.4",
-    "xcraft-core-etc": "^1.0.0",
+    "xcraft-core-etc": "^2.0.0",
     "xcraft-core-log": "^1.0.0"
   },
   "author": "Samuel Loup & Mathieu Schroeter",
