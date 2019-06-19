@@ -1,6 +1,6 @@
 {
   "name": "xcraft-core-eventstore",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Xcraft event store",
   "main": "index.js",
   "engines": {
