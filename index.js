@@ -8,20 +8,20 @@ var axon = require('xcraft-axon');
 var subscriptions = axon.socket('sub');
 var es;
 
-var persist = function(topic, msg) {
+var persist = function (topic, msg) {
   if (es) {
     /* Note about EventStore and 'connected' topic */
     /* we discard connected message for two reason: */
     /* 1. eventstore don't support field name containing '.' */
     /* 2. this topic annonce all commands, and has no business value */
     if (msg && topic !== 'greathall::autoconnect.finished') {
-      es.insert(msg.token, topic, msg.data, function(err) {
+      es.insert(msg.token, topic, msg.data, function (err) {
         if (err) {
           xLog.err(err);
         }
       });
     } else {
-      es.insert(msg.token, topic, null, function(err) {
+      es.insert(msg.token, topic, null, function (err) {
         if (err) {
           xLog.err(err);
         }
@@ -33,7 +33,7 @@ var persist = function(topic, msg) {
 };
 
 subscriptions.subscribe('*');
-subscriptions.on('message', function(topic, msg) {
+subscriptions.on('message', function (topic, msg) {
   if (topic !== 'greathall::heartbeat') {
     persist(topic, msg);
     if (topic === 'gameover') {
@@ -42,7 +42,7 @@ subscriptions.on('message', function(topic, msg) {
   }
 });
 
-exports.getInstance = function() {
+exports.getInstance = function () {
   var config = require('xcraft-core-etc')().load('xcraft-core-eventstore');
 
   if (!config || !config.enable || es) {
